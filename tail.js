@@ -1,7 +1,7 @@
 const tail = function(words) {
-let output = words.slice(1);
-console.log(output);
-}
+  let output = words.slice(1);
+  console.log(output);
+};
 
 //copied over function from assertEqual.js
 const assertEqual = function(actual, expected) {
@@ -12,7 +12,7 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// Test Case: Check the original array 
+// Test Case: Check the original array
 const words = ["Yo Yo", "Lighthouse", "Labs"];
 tail(words); // no need to capture the return value since we are not checking it
 assertEqual(words.length, 3); // original array should still have 3 elements!

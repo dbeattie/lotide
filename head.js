@@ -1,8 +1,8 @@
-//copied over function from assertEqual.js
 const head = function(array) {
   let output = array[0];
   return output;
 };
+//copied over function from assertEqual.js
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅ Assertion Passed: ${actual} === ${expected}.`);
