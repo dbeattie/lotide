@@ -30,21 +30,4 @@ const assertArraysEqual = function(actual, expected) {
     console.log(`🔴 Assertion Failed: ${actual} !== ${expected}.`);
   }
 };
-// ACTUAL FUNCTION
-const middle = function(array) {
-  if (array.length < 3) {
-    return [];
-  }
-  if (array.length % 2 === 0) {
-    let half = array.length / 2;
-    return array.splice(half - 1, 2);
-  } else {
-    let half = array.length / 2;
-    return array[Math.floor(half)];
-  }
-};
-
-console.log(middle(["Yo Yo", "Lighthouse", "Labs"]));
-console.log(middle([1, 2, 3, 4, 5, 6, 7, 8]));
-console.log(middle([1, 2]));
-console.log(middle(["One Thing"]));
+//NEW WITHOUT FUNCTION

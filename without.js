@@ -30,21 +30,22 @@ const assertArraysEqual = function(actual, expected) {
     console.log(`🔴 Assertion Failed: ${actual} !== ${expected}.`);
   }
 };
-// ACTUAL FUNCTION
-const middle = function(array) {
-  if (array.length < 3) {
-    return [];
+//NEW WITHOUT FUNCTION
+const without = function(source, itemsToRemove) {
+  //console.log(source);
+  //console.log(itemsToRemove);
+  let newArr = [];
+  for (let i = 0; i < source.length; i++) {
+    for (let x = 0; x < itemsToRemove.length; x++) {
+      if (itemsToRemove[x] !== source[i]) {
+        newArr.push(source[i]);
+      }
+    }
   }
-  if (array.length % 2 === 0) {
-    let half = array.length / 2;
-    return array.splice(half - 1, 2);
-  } else {
-    let half = array.length / 2;
-    return array[Math.floor(half)];
-  }
+  return newArr;
 };
 
-console.log(middle(["Yo Yo", "Lighthouse", "Labs"]));
-console.log(middle([1, 2, 3, 4, 5, 6, 7, 8]));
-console.log(middle([1, 2]));
-console.log(middle(["One Thing"]));
+const words = ["hello", "world", "lighthouse"];
+console.log(without(["hello", "world", "lighthouse"], ["lighthouse"])); // no need to capture return value for this test case
+// Make sure the original array was not altered by the without function
+assertArraysEqual(words, ["hello", "world", "lighthouse"]);
