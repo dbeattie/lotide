@@ -1,17 +1,16 @@
 const eqArrays = function(a, b) {
   let output;
-  if(a.length !== b.length) {
-    output = false; 
-  } else { 
-      for(let i = 0; i < a.length; i++) {
-        if(a[i] !== b[i]) {
+  if (a.length !== b.length) {
+    output = false;
+  } else {
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) {
         output = false;
       } else output = true;
+    }
+    return output;
   }
-  return output;
-} 
-
-}
+};
 // copied over from assertEqual.js
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
