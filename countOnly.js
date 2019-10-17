@@ -1,3 +1,9 @@
+//I DIDN'T NEED ANY ADDITIONAL CHECKS PER THE ASSIGNMENT???
+//Once I had countOnly constructed and checked, I moved in to the rest
+//of the assignment but when I added the first bit of test code it worked?
+//DON'T KNOW WHERE I WENT WRONG or if I even did??
+
+
 // Copied assertEqual.js function here:
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
@@ -10,25 +16,6 @@ const assertEqual = function(actual, expected) {
 // TEST CODE for AssertEqual.js
 //assertEqual("Lighthouse Labs", "Bootcamp");
 //assertEqual(1, 1);
-
-let allItems = [
-  "Karl",
-  "Salima",
-  "Agouhanna",
-  "Fang",
-  "Kavith",
-  "Jason",
-  "Salima",
-  "Fang",
-  "Joe"
-];
-
-
-let itemsToCount = { 
-  "Jason": true, 
-  "Karima": true,  
-  "Fang": true 
-};
 
 // // allItems: an array of strings that we need to look through
 // // itemsToCount: an object specifying what to count
@@ -45,30 +32,27 @@ const countOnly = function(allItems, itemsToCount) {
 return outputObj
 }
 
-console.log(countOnly(allItems, itemsToCount));
+//allItems for countOnly function
+const firstNames = [
+  "Karl",
+  "Salima",
+  "Agouhanna",
+  "Fang",
+  "Kavith",
+  "Jason",
+  "Salima",
+  "Fang",
+  "Joe"
+];
 
-//Not exactly sure what this will yield:
-// const firstNames = [
-//   "Karl",
-//   "Salima",
-//   "Agouhanna",
-//   "Fang",
-//   "Kavith",
-//   "Jason",
-//   "Salima",
-//   "Fang",
-//   "Joe"
-// ];
+//telling countOnly to look at firstnames and passing a new array into itemsToCount
+const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true });
 
-// const result1 = countOnly(firstNames, { 
-//   "Jason": true, 
-//   "Karima": true, 
-//   "Fang": true 
-// });
-
+// COMMENTED OUT because I didn't need any of these checks to get mine to work
 // const results = {}
 // return results;
 
-// assertEqual(result1["Jason"], 1);
-// assertEqual(result1["Karima"], undefined);
-// assertEqual(result1["Fang"], 2);
+//running the assertEqual function on result1
+assertEqual(result1["Jason"], 1);
+assertEqual(result1["Karima"], undefined);
+assertEqual(result1["Fang"], 2);
