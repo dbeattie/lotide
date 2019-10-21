@@ -11,15 +11,40 @@ const assertEqual = function(actual, expected) {
 //assertEqual("Lighthouse Labs", "Bootcamp");
 //assertEqual(1, 1);
 
+//ONE METHOD I'M PLAYING WITH
 
-// THIS BIT OF CODE WORKS:
+const countLetters = function(str) {
+  let counts = {}
+  let newStr = str.replace(/ /g,"");
+  let charOutput;
+  let count;
+  for (let i = 0; i < newStr.length; ++i) {
+    charOutput = newStr.charAt(i);
+    count = counts[charOutput];
+    counts[charOutput] = count ? count + 1 : 1;
+  }
+  return counts
+};
+
+var str = "lighthouse in the house";
+console.log(countLetters(str));
+
+//Line 39: an empty object
+//Line 39 through 42 shouldn't need this many variables but ??
+//Line 40: replace any white spaces before running the function with regex
+//Line 43: loop through the string, I should be able to use a for...of or for...in?
+//Line 44: loop through and grab the character at each index
+//Line 45: get a count for each character, if we have one (a space is undefined if we didn't create the newStr)
+//Line 46: if we have a char, store it plus one in counts with an iteration
+
+// THIS BIT OF CODE ALSO WORKS AND WAS PULLED FROM THE INTERNET:
 // const countLetters = function(letters) {
 //   var chars = {};
 //   letters.replace(/\S/g, function(x){chars[x] = (isNaN(chars[x]) ? 1 : 
 //   chars[x] + 1);});
 //   return chars;
 // }
-// AND THIS
+// // AND THIS
 // var myString = "lighthouse in the house";
 // console.log(countLetters(myString));
 
@@ -32,31 +57,3 @@ const assertEqual = function(actual, expected) {
 
 // var myString = "lighthouse in the house";
 // console.log(countLetters(myString));
-
-//SECOND METHOD I'M PLAYING WITH
-
-// The string
-var str = "lighthouse in the house";
-
-// A map (in JavaScript, an object) for the character=>count mappings
-let counts = {};
-
-// Misc vars?? Shouldn't need this many...
-let charOutput;
-let count;
-
-// Loop through the string...but this is a complicated way to do it...
-for (i = 0; i < str.length; ++i) {
-    // Get this character
-    charOutput = str.charAt(i); // Not all engines support [] on strings
-
-    // Get the count for it, if we have one; we'll get `undefined` if we
-    // don't know this character yet
-    count = counts[charOutput];
-
-    // If we have one, store that count plus one; if not, store one
-    // We can rely on `count` being falsey if we haven't seen it before,
-    // because we never store falsey numbers in the `counts` object.
-    counts[charOutput] = count ? count + 1 : 1;
-}
-console.log(counts);
