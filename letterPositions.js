@@ -3,8 +3,8 @@ const assertArraysEqual = function(actual, expected) {
   if (actual.length !== expected.length) {
     output = false;
   } else {
-    for (let i = 0; i < actual.length; i++) {
-      if (actual[i] !== expected[i]) {
+    for (let char = 0; char < actual.length; char++) {
+      if (actual[char] !== expected[char]) {
         output = false;
       } else output = true;
     }
@@ -16,16 +16,18 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ Assertion Passed: ${actual} === ${expected}.`);
-  } else {
-    console.log(`🔴 Assertion Failed: ${actual} !== ${expected}.`);
-  }
-};
-
 const letterPositions = function(sentence) {
   const results = {};
-  // logic to update results here
+  
+  for(let i = 0; i < sentence.length; i++){
+    if (!results[sentence[i]]) {
+      results[sentence[i]] = [];
+    } 
+    console.log(results[sentence[i]].push(i));
+  }
+  console.log(results);
   return results;
 };
+//TEST CASES
+assertArraysEqual(letterPositions("hello").e, [1]);
+assertArraysEqual(letterPositions("hello").l, [2,3]);
