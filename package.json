@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@dbeattie/lotide.",
+  "version": "0.9.0",
+  "description": "A poorly implemented lodash knock-off that is missing some key files.",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/dbeattie/lotide.git"
   },
-  "author": "",
+  "author": "Darren Beattie (With Help) <darren@fettle.ca> (http://darrenbeattie.com/)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dbeattie/lotide/issues"
