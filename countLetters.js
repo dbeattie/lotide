@@ -7,12 +7,6 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// TEST CODE for assertEqual.js
-//assertEqual("Lighthouse Labs", "Bootcamp");
-//assertEqual(1, 1);
-
-//ONE METHOD I'M PLAYING WITH
-
 const countLetters = function(str) {
   let counts = {}
   let newStr = str.replace(/ /g,"");
@@ -24,6 +18,7 @@ const countLetters = function(str) {
   return counts
 };
 
+// TEST CODE
 var str = "lighthouse in the house";
 console.log(countLetters(str));
 console.log({ l: 1, i: 2, g: 1, h: 4, t: 2, o: 2, u: 2, s: 2, e: 3, n: 1 });
