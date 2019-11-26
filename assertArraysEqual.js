@@ -1,14 +1,18 @@
 //Refactored over from assertEqual.js with logic taken from assertArraysEqual.js
-const assertArraysEqual = function(actual, expected) {
+const eqArrays = function(a, b) {
   let output;
-  for (let i = 0; i < actual.length; i++) {
-    if (actual[i] !== expected[i]) {
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
       output = false;
     } else {
       output = true;
     }
   }
-  if (output) {
+  return output;
+}
+
+const assertArraysEqual = function(actual, expected) {
+  if (eqArrays(actual, expected)) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}.\n`);
   } else {
     console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}.\n`);
