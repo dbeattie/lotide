@@ -1,35 +1,23 @@
-//I DIDN'T NEED ANY ADDITIONAL CHECKS PER THE ASSIGNMENT???
-//Once I had countOnly constructed and checked, I moved in to the rest
-//of the assignment but when I added the first bit of test code it worked?
-//DON'T KNOW WHERE I WENT WRONG or if I even did??
-
-
-// Copied assertEqual.js function here:
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
-    console.log(`✅ Assertion Passed: ${actual} === ${expected}.`);
+    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}.`);
   } else {
-    console.log(`🔴 Assertion Failed: ${actual} !== ${expected}.`);
+    console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}.`);
   }
 };
 
-// TEST CODE for AssertEqual.js
-//assertEqual("Lighthouse Labs", "Bootcamp");
-//assertEqual(1, 1);
-
-// // allItems: an array of strings that we need to look through
-// // itemsToCount: an object specifying what to count
 const countOnly = function(allItems, itemsToCount) {
-  let outputObj = {};
-  for (let key in itemsToCount) {
-    outputObj[key] = 0;
-  }
-  for (let key of allItems) {
-    if (outputObj[key] !== undefined) {
-      outputObj[key]++;
+  const results = {}; //create return object
+  for (const item of allItems) { //loop through allItems
+    if (itemsToCount[item]) { //if itemsToCount has name [item] represents key value
+      if (results[item]) { //if results has item, increment the number
+        results[item] += 1;
+      } else {
+        results[item] = 1; //if results doesn't have item, make number 1
+      }
     }
   }
-  return outputObj;
+  return results;
 };
 
 //allItems for countOnly function
@@ -45,12 +33,8 @@ const firstNames = [
   "Joe"
 ];
 
-//telling countOnly to look at firstnames and passing a new array into itemsToCount
+//telling countOnly to compare firstnames to itemsToCount object
 const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true });
-
-// COMMENTED OUT because I didn't need any of these checks to get mine to work
-// const results = {}
-// return results;
 
 //running the assertEqual function on result1
 assertEqual(result1["Jason"], 1);
