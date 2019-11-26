@@ -1,5 +1,8 @@
 const eqArrays = function(a, b) {
   let output;
+  if ((a === undefined || a.length === 0) && (b === undefined || b.length === 0)) {
+    output = true;
+   } 
   for (let i = 0; i < a.length; i++) {
     if (a[i] !== b[i]) {
       output = false;
