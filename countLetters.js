@@ -1,24 +1,40 @@
-// taken from assertEqual.js
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
-    console.log(`✅ Assertion Passed: ${actual} === ${expected}.`);
+    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}.`);
   } else {
-    console.log(`🔴 Assertion Failed: ${actual} !== ${expected}.`);
+    console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}.`);
   }
 };
 
 const countLetters = function(str) {
-  let counts = {}
-  let newStr = str.replace(/ /g,"");
-  let count;
-  for (let i = 0; i < newStr.length; ++i) {
-    count = counts[newStr.charAt(i)];
-    counts[newStr.charAt(i)] = count ? count + 1 : 1;
+  let resultObj = {};
+  let newStr = str.replace(/ /g,""); //regex to remove any spaces in the string
+  for (let char of newStr) {
+    if (resultObj[char]) {
+      resultObj[char] += 1;
+    } else {
+      resultObj[char] = 1;
+    }
   }
-  return counts
+  return resultObj
 };
 
 // TEST CODE
 var str = "lighthouse in the house";
-console.log(countLetters(str));
-console.log({ l: 1, i: 2, g: 1, h: 4, t: 2, o: 2, u: 2, s: 2, e: 3, n: 1 });
+const result1 = countLetters(str);
+
+assertEqual(result1["h"], 4);
+assertEqual(result1["e"], 3);
+assertEqual(result1["z"], undefined)
+
+// //WORKS AS OLDER i loop
+// const countLetters = function(str) {
+//   let resultObj = {};
+//   let newStr = str.replace(/ /g,""); //regex to remove any spaces in the string
+//   let count;
+//   for (let i = 0; i < newStr.length; ++i) {
+//     count = resultObj[newStr.charAt(i)];
+//     resultObj[newStr.charAt(i)] = count ? count + 1 : 1;
+//   }
+//   return resultObj;
+// };
