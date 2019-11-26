@@ -1,18 +1,20 @@
-const assertArraysEqual = function(actual, expected) {
+const eqArrays = function(a, b) {
   let output;
-  if (actual.length !== expected.length) {
-    output = false;
-  } else {
-    for (let char = 0; char < actual.length; char++) {
-      if (actual[char] !== expected[char]) {
-        output = false;
-      } else output = true;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      output = false;
+    } else {
+      output = true;
     }
   }
-  if (output) {
-    console.log(`✅ Assertion Passed: ${actual} === ${expected}.`);
+  return output;
+}
+
+const assertArraysEqual = function(actual, expected) {
+  if (eqArrays(actual, expected)) {
+    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}.\n`);
   } else {
-    console.log(`🔴 Assertion Failed: ${actual} !== ${expected}.`);
+    console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}.\n`);
   }
 };
 
@@ -23,11 +25,12 @@ const letterPositions = function(sentence) {
     if (!results[sentence[i]]) {
       results[sentence[i]] = [];
     } 
-    console.log(results[sentence[i]].push(i));
+    results[sentence[i]].push(i);
   }
-  console.log(results);
   return results;
 };
+
 //TEST CASES
 assertArraysEqual(letterPositions("hello").e, [1]);
-assertArraysEqual(letterPositions("hello").l, [2,3]);
+assertArraysEqual(letterPositions("hello").l, [2, 3]);
+assertArraysEqual(letterPositions("scissors").s, [0, 3, 4, 7]);
