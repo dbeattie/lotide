@@ -1,31 +1,38 @@
-/**
- * NOT MY IMPLENTATION -- LODASH (LOTIDE IS A CLONE) Creates an array of values by 
- * running each element of `array` thru `iteratee`.
- * The iteratee is invoked with three arguments: (value, index, array).
- *
- * @since 5.0.0
- * @category Array
- * @param {Array} array The array to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array} Returns the new mapped array.
- * @example
- *
- * function square(n) {
- *   return n * n
- * }
- *
- * map([4, 8], square)
- * // => [16, 64]
- */
-function map(array, iteratee) {
-  let index = -1
-  const length = array == null ? 0 : array.length
-  const result = new Array(length)
-
-  while (++index < length) {
-    result[index] = iteratee(array[index], index, array)
+//Refactored over from assertEqual.js with logic taken from assertArraysEqual.js
+const eqArrays = function(a, b) {
+  let output;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      output = false;
+    } else {
+      output = true;
+    }
   }
-  return result
+  return output;
 }
 
-//export default map
+const assertArraysEqual = function(actual, expected) {
+  if (eqArrays(actual, expected)) {
+    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}.\n`);
+  } else {
+    console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}.\n`);
+  }
+};
+
+const map = function(arr, cb) {
+  const results = [];
+  for (let item of arr) {
+    results.push(cb(item));
+  }
+  return results;
+}
+
+const words = ["ground", "control", "to", "major", "tom"];
+const results1 = map(words, word => word[0]);
+const results2 = map(words, word => word[1]);
+const results3 = map(words, word => word[3]);
+
+
+assertArraysEqual(results1, [ 'g', 'c', 't', 'm', 't' ]); // => true
+assertArraysEqual(results2, [ 'r', 'o', 'o', 'a', 'o' ]); // => true
+assertArraysEqual(results3, [ 'u', 't', , 'o', ]); // => true
