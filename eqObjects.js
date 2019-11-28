@@ -1,4 +1,4 @@
-const assertEqual = function(actual, expected) {
+const assertEqual = function (actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}.`);
   } else {
@@ -6,14 +6,14 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const eqArrays = function(a, b) {
+const eqArrays = function (a, b) {
   let output;
   if (a.length !== b.length) {
     return false;
-  } 
+  }
   if ((a === undefined || a.length === 0) && (b === undefined || b.length === 0)) {
     output = true;
-  } 
+  }
   for (let i = 0; i < a.length; i++) {
     if (a[i] !== b[i]) {
       output = false;
@@ -24,20 +24,20 @@ const eqArrays = function(a, b) {
   return output;
 }
 
-const eqObjects = function(object1, object2) {
+const eqObjects = function (object1, object2) {
   if ((Object.keys(object1)).length !== (Object.keys(object2)).length) {
     return false;
-  } 
+  }
   for (let key of Object.keys(object1)) {
     if (!object2[key]) {
       return false;
-    } 
+    }
     if (Array.isArray(object2[key])) {
       if (eqArrays(object1[key], object2[key]) === false) {
         return false;
-      } 
-    }    
-  } 
+      }
+    }
+  }
   return true;
 };
 
