@@ -40,3 +40,25 @@ assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), ([ 1, 2, 3, 4, 5, 6 ]));
 assertArraysEqual(flatten(['a', 'b', ['c', 'd', 'e'], 'f', ['g']]), ([ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]));
 
 module.exports = flatten;
+
+
+// //FOUND THIS AFTER THE FACT IN MDN DOCS USING forEach METHOD AND RECURSION
+// //NEGATES THE NEED FOR A SECOND LOOP WHICH GETS DICEY
+// function flatten(arr) {
+//   const result = []
+
+//   arr.forEach((i) => {
+//     if (Array.isArray(i)) {
+//       result.push(...flatten(i))
+//     } else {
+//       result.push(i)
+//     }
+//   })
+  
+//   return result
+// }
+
+// // Usage
+// const problem = [1, 2, 3, [4, 5, [6, 7], 8, 9]]
+
+// flatten(problem) // [1, 2, 3, 4, 5, 6, 7, 8, 9]
