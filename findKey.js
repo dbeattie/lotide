@@ -1,41 +1,42 @@
-/**
- * This method from Lodash (LOTIDE IS A CLONE) like `find` except that it 
- * returns the key of the first element `predicate` returns truthy for instead 
- * of the element itself.
- *
- * @since 1.1.0
- * @category Object
- * @param {Object} object The object to inspect.
- * @param {Function} predicate The function invoked per iteration.
- * @returns {string|undefined} Returns the key of the matched element,
- *  else `undefined`.
- * @see find, findIndex, findLast, findLastIndex, findLastKey
- * @example
- *
- * const users = {
- *   'barney':  { 'age': 36, 'active': true },
- *   'fred':    { 'age': 40, 'active': false },
- *   'pebbles': { 'age': 1,  'active': true }
- * }
- *
- * findKey(users, ({ age }) => age < 40)
- * // => 'barney' (iteration order is not guaranteed)
- */
-function findKey(object, predicate) {
-  let result
-  if (object == null) {
-    return result
+const assertEqual = function(actual, expected) {
+  if (actual === expected) {
+    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}.`);
+  } else {
+    console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}.`);
   }
-  Object.keys(object).some((key) => {
-    const value = object[key]
-    if (predicate(value, key, object)) {
-      result = key
-      return true
+};
+
+const findKey = function (object, cb) {
+  let valueArr = Object.values(object);
+  for (let item of valueArr) {
+    if (cb(item)) {
+      return Object.keys(object)[item.stars];
     }
-  })
-  return result
+  }
+  return undefined;
+};
+
+/* I'D REALLY LIKE TO USE FILTER OR MAP OR FIND HERE BUT HAD TO BRUTE FORCE IT REALLY. */
+
+let data1 = {
+  "Blue Hill": { stars: 1 },
+  "Akaleri":   { stars: 3 },
+  "noma":      { stars: 2 },
+  "elBulli":   { stars: 3 },
+  "Ora":       { stars: 2 },
+  "Akelarre":  { stars: 3 }
 }
 
-//export default findKey
+let data2 = {
+  "Pujol":        { stars: 1 },
+  "Gaggan":       { stars: 3 },
+  "Geranium":     { stars: 2 },
+  "Central":      { stars: 3 },
+  "White Rabbit": { stars: 2 },
+  "Arpege":       { stars: 3 }
+}
 
-//THIS IS NOT MY IMPLENTATION OF THE FUNCTION, ONLY AN EXAMPLE TO USE WHEN YOU BUILD YOUR OWN
+assertEqual(findKey(data1, x => x.stars === 2), ("noma" || "Ora"));
+assertEqual(findKey(data2, x => x.stars === 4), undefined);
+
+//module.exports = findKey;
