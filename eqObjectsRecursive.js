@@ -24,7 +24,7 @@ const eqArrays = function (a, b) {
   return output;
 }
 
-const eqObjects = function (object1, object2) {
+const eqObjectsRec = function (object1, object2) {
   obj1Length = Object.keys(object1).length;
   obj2Length = Object.keys(object2).length;
   
@@ -32,11 +32,8 @@ const eqObjects = function (object1, object2) {
     return false;
   }
   for (let key of Object.keys(object1)) {
-    if (!object2[key]) {
-      return false;
-    }
-    if (Array.isArray(object2[key])) {
-      if (eqArrays(object1[key], object2[key]) === false) {
+    if (typeof (object1[key]) === 'object') {
+      if (!eqObjectsRec(object1[key], object2[key])) {
         return false;
       }
     }
@@ -44,19 +41,25 @@ const eqObjects = function (object1, object2) {
   return true;
 };
 
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true); // => true
+assertEqual(eqObjectsRec({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true) // => true
+assertEqual(eqObjectsRec({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false) // => false
+assertEqual(eqObjectsRec({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false) // => false
 
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false); // => false
 
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true); // => true
 
-const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false); // => false
+// const cd = { c: "1", d: ["2", 3] };
+// const dc = { d: ["2", 3], c: "1" };
+// assertEqual(eqObjects(cd, dc), true); // => true
+
+// const cd2 = { c: "1", d: ["2", 3, 4] };
+// assertEqual(eqObjects(cd, cd2), false); // => false
+
+// const ab = { a: "1", b: "2" };
+// const ba = { b: "2", a: "1" };
+// assertEqual(eqObjects(ab, ba), true); // => true
+
+// const abc = { a: "1", b: "2", c: "3" };
+// assertEqual(eqObjects(ab, abc), false); // => false
 
 // //FOUND THIS HANDY LITTLE CONDENSED VERSION WHILE ATTEMPTING TO REFACTOR BUT IT'S HARD TO READ
 // const eqObjects = function(object1, object2) {
