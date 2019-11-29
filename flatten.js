@@ -41,6 +41,7 @@ assertArraysEqual(flatten(['a', 'b', ['c', 'd', 'e'], 'f', ['g']]), ([ 'a', 'b',
 
 module.exports = flatten;
 
+// 2019 ECMA Script Is making several FLATTEN functions native!!
 
 // //FOUND THIS AFTER THE FACT IN MDN DOCS USING forEach METHOD AND RECURSION
 // //NEGATES THE NEED FOR A SECOND LOOP WHICH GETS DICEY
