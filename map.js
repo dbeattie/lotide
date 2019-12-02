@@ -4,6 +4,6 @@ const map = function(arr, cb) {
     results.push(cb(item));
   }
   return results;
-}
+};
 
 module.exports = map;

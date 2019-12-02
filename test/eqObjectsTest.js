@@ -28,3 +28,19 @@ const cd2 = { c: "1", d: ["2", 3, 4] };
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
 const abc = { a: "1", b: "2", c: "3" };
+
+describe("#eqObjectsRecursive", () => {
+    
+  it('Should be true', () => {
+    assert.deepEqual(_.eqObjectsRecursive({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
+  });
+  
+  it('Should be false', () => {
+    assert.deepEqual(_.eqObjectsRecursive({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false); 
+  });
+  
+  it('Should be false', () => {
+    assert.deepEqual(_.eqObjectsRecursive({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false); 
+  });
+
+});

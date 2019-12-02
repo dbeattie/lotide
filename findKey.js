@@ -1,4 +1,4 @@
-const findKey = function (object, cb) {
+const findKey = function(object, cb) {
   let valueArr = Object.values(object);
   for (let item of valueArr) {
     if (cb(item)) {

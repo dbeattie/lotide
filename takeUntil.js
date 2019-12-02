@@ -7,7 +7,7 @@ const takeUntil = function(arr, cb) {
       break;
     }
   }
-  return outputArr
-}
+  return outputArr;
+};
 
 module.exports = takeUntil;

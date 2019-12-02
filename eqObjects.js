@@ -1,9 +1,9 @@
-const eqArrays = require('./eqArrays')
+const eqArrays = require('./eqArrays');
 //const _ = require('./index')
 
-const eqObjects = function (object1, object2) {
-  obj1Length = Object.keys(object1).length;
-  obj2Length = Object.keys(object2).length;
+const eqObjects = function(object1, object2) {
+  let obj1Length = Object.keys(object1).length;
+  let obj2Length = Object.keys(object2).length;
   
   if (obj1Length !== obj2Length || typeof object1 !== 'object' || typeof object2 !== 'object') {
     return false;
@@ -20,7 +20,6 @@ const eqObjects = function (object1, object2) {
   }
   return true;
 };
-
 
 // //FOUND THIS HANDY LITTLE CONDENSED VERSION WHILE ATTEMPTING TO REFACTOR BUT IT'S HARD TO READ
 // const eqObjects = function(object1, object2) {

@@ -1,17 +1,17 @@
 //UPDATED FLATTEN USING RECURSION
 const flatten = function(arr) {
-  const result = []
+  const result = [];
 
   arr.forEach((i) => {
     if (Array.isArray(i)) {
-      result.push(...flatten(i))
+      result.push(...flatten(i));
     } else {
-      result.push(i)
+      result.push(i);
     }
-  })
+  });
   
-  return result
-}
+  return result;
+};
 
 
 //OLD INITIAL FLATTEN FUNCTION

@@ -8,7 +8,7 @@ const countLetters = function(str) {
       resultObj[char] = 1;
     }
   }
-  return resultObj
+  return resultObj;
 };
 
 module.exports = countLetters;
