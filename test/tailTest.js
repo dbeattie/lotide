@@ -1,5 +1,6 @@
 const assert = require('chai').assert;
 const tail = require('../tail');
+// const _ = require('./index')
 
 describe("#tail", () => {
   
