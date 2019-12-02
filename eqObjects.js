@@ -66,3 +66,5 @@ assertEqual(eqObjects(ab, abc), false); // => false
 //       return isEqual && eqObjects(object1[key], object2[key]);
 //     }, true) : (object1 === object2);
 //   }
+
+module.exports = eqObjects;

@@ -19,6 +19,8 @@ const countLetters = function(str) {
   return resultObj
 };
 
+module.exports = countLetters;
+
 // TEST CODE
 var str = "lighthouse in the house";
 const result1 = countLetters(str);

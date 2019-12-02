@@ -36,3 +36,5 @@ const results3 = map(words, word => word[3]);
 assertArraysEqual(results1, [ 'g', 'c', 't', 'm', 't' ]); // => true
 assertArraysEqual(results2, [ 'r', 'o', 'o', 'a', 'o' ]); // => true
 assertArraysEqual(results3, [ 'u', 't', , 'o', ]); // => true
+
+module.exports = map;

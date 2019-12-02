@@ -1,4 +1,4 @@
-const eqArraysRec = function(arrA, arrB) {
+const eqArraysRecursive = function(arrA, arrB) {
   if (arrA.length !== arrB.length) {
     return false;
   } 
@@ -8,15 +8,15 @@ const eqArraysRec = function(arrA, arrB) {
 
   for (let el in arrA) {
     //console.log(arrA[el], arrB[el]);
-    if (!eqArraysRec(arrA[el], arrB[el])) {
+    if (!eqArraysRecursive(arrA[el], arrB[el])) {
       return false;
     }
   }
   return true;
 };
 
-
-
 console.log(eqArraysRec([[2, 3], [4]], [[2, 3], [4]])); // => true
 console.log(eqArraysRec(([[2, 3], [4]]), ([[2, 3], [4, 5]]))); // => false
 console.log(eqArraysRec([[2, 3], [4]], [[2, 3], 4])); // => false
+
+module.exports = eqArraysRecursive;

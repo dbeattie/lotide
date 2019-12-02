@@ -34,3 +34,5 @@ const letterPositions = function(sentence) {
 assertArraysEqual(letterPositions("hello").e, [1]);
 assertArraysEqual(letterPositions("hello").l, [2, 3]);
 assertArraysEqual(letterPositions("scissors").s, [0, 3, 4, 7]);
+
+module.exports = letterPositions;

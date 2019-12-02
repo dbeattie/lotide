@@ -33,6 +33,8 @@ const firstNames = [
   "Joe"
 ];
 
+module.exports = countOnly;
+
 //telling countOnly to compare firstnames to itemsToCount object
 const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true });
 

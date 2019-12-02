@@ -39,4 +39,4 @@ let data2 = {
 assertEqual(findKey(data1, x => x.stars === 2), ("noma" || "Ora"));
 assertEqual(findKey(data2, x => x.stars === 4), undefined);
 
-//module.exports = findKey;
+module.exports = findKey;
