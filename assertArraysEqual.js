@@ -1,15 +1,4 @@
-//Refactored over from assertEqual.js with logic taken from assertArraysEqual.js
-const eqArrays = function(a, b) {
-  let output;
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] !== b[i]) {
-      output = false;
-    } else {
-      output = true;
-    }
-  }
-  return output;
-}
+const eqArrays = require('./eqArrays');
 
 const assertArraysEqual = function(actual, expected) {
   if (eqArrays(actual, expected)) {
