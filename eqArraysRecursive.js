@@ -15,8 +15,8 @@ const eqArraysRecursive = function(arrA, arrB) {
   return true;
 };
 
-console.log(eqArraysRec([[2, 3], [4]], [[2, 3], [4]])); // => true
-console.log(eqArraysRec(([[2, 3], [4]]), ([[2, 3], [4, 5]]))); // => false
-console.log(eqArraysRec([[2, 3], [4]], [[2, 3], 4])); // => false
+console.log(eqArraysRecursive([[2, 3], [4]], [[2, 3], [4]])); // => true
+console.log(eqArraysRecursive(([[2, 3], [4]]), ([[2, 3], [4, 5]]))); // => false
+console.log(eqArraysRecursive([[2, 3], [4]], [[2, 3], 4])); // => false
 
 module.exports = eqArraysRecursive;

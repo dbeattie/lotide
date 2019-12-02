@@ -1,3 +1,5 @@
+const assert = require('chai').assert;
+
 // STARTED REPLACING ALL MY TEST CASES BUT THAT WAS NEVER EXPLICITLY ASKED
 // const without = require ('../without');
 // const assert = require('chai').assert;
