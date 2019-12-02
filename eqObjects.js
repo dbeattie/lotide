@@ -1,28 +1,5 @@
-const assertEqual = function (actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}.`);
-  } else {
-    console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}.`);
-  }
-};
-
-const eqArrays = function (a, b) {
-  let output;
-  if (a.length !== b.length) {
-    return false;
-  }
-  if ((a === undefined || a.length === 0) && (b === undefined || b.length === 0)) {
-    output = true;
-  }
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] !== b[i]) {
-      output = false;
-    } else {
-      output = true;
-    }
-  }
-  return output;
-}
+const eqArrays = require('./eqArrays')
+//const _ = require('./index')
 
 const eqObjects = function (object1, object2) {
   obj1Length = Object.keys(object1).length;
@@ -44,19 +21,6 @@ const eqObjects = function (object1, object2) {
   return true;
 };
 
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true); // => true
-
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false); // => false
-
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true); // => true
-
-const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false); // => false
 
 // //FOUND THIS HANDY LITTLE CONDENSED VERSION WHILE ATTEMPTING TO REFACTOR BUT IT'S HARD TO READ
 // const eqObjects = function(object1, object2) {

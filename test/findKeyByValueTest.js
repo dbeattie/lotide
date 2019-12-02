@@ -1,18 +1,24 @@
 const assert = require('chai').assert;
 const _ = require('../index');
 
-describe("#countOnly", () => {
+describe("#findKeyByValue", () => {
     
-  it("The 'e' in 'hello' is at index [1]", () => {
-    assert.deepEqual(_.letterPositions("hello").e, [1]);
+  it("'The Wire' is the best 'drama' (genre) key value", () => {
+    assert.deepEqual(_.findKeyByValue(bestTVShowsByGenre, "The Wire"), "drama");
   });
   
-  it("The 'l' in 'hello' is at index [2, 3]", () => {
-    assert.deepEqual(_.letterPositions("hello").l, [2, 3]); 
+  it("'Brooklyn Nine-Nine' the best 'comedy' (genre) key value", () => {
+    assert.deepEqual(_.findKeyByValue(bestTVShowsByGenre, "Brooklyn Nine-Nine"), "comedy"); 
   });
   
-  it("The 's' in 'scissors' is at index [0, 3, 4, 7]", () => {
-    assert.deepEqual(_.letterPositions("scissors").s, [0, 3, 4, 7]); 
+  it("'That 70s Show' does not have a key value (genre) associated with it", () => {
+    assert.deepEqual(_.findKeyByValue(bestTVShowsByGenre, "That '70s Show"), undefined); 
   });
 
 });
+
+const bestTVShowsByGenre = {
+  sciFi: "The Expanse",
+  comedy: "Brooklyn Nine-Nine",
+  drama:  "The Wire"
+};

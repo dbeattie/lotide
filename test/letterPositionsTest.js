@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const _ = require('../index');
 
-describe("#countOnly", () => {
+describe("#letterPositions", () => {
     
   it("The 'e' in 'hello' is at index [1]", () => {
     assert.deepEqual(_.letterPositions("hello").e, [1]);

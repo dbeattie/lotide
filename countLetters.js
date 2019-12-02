@@ -1,11 +1,3 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}.`);
-  } else {
-    console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}.`);
-  }
-};
-
 const countLetters = function(str) {
   let resultObj = {};
   let newStr = str.replace(/ /g,""); //regex to remove any spaces in the string
@@ -20,14 +12,6 @@ const countLetters = function(str) {
 };
 
 module.exports = countLetters;
-
-// TEST CODE
-var str = "lighthouse in the house";
-const result1 = countLetters(str);
-
-assertEqual(result1["h"], 4);
-assertEqual(result1["e"], 3);
-assertEqual(result1["z"], undefined)
 
 // //WORKS AS OLDER i loop
 // const countLetters = function(str) {
