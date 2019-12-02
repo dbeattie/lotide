@@ -1,11 +1,3 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}.`);
-  } else {
-    console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}.`);
-  }
-};
-
 const countOnly = function(allItems, itemsToCount) {
   const results = {}; //create return object
   for (const item of allItems) { //loop through allItems
@@ -34,11 +26,3 @@ const firstNames = [
 ];
 
 module.exports = countOnly;
-
-//telling countOnly to compare firstnames to itemsToCount object
-const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true });
-
-//running the assertEqual function on result1
-assertEqual(result1["Jason"], 1);
-assertEqual(result1["Karima"], undefined);
-assertEqual(result1["Fang"], 2);
